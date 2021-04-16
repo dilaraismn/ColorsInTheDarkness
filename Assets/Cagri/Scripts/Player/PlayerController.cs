@@ -39,6 +39,7 @@ namespace Cagri.Scripts.Player
         {
             RaycastHit hit;
             Ray ray = new Ray(transform.position, Vector3.down);
+            Debug.DrawRay(transform.position, Vector3.down * rayHeight, Color.red);
             _isGrounded = Physics.Raycast(ray, out hit, rayHeight);
         }
         
