@@ -10,6 +10,7 @@ namespace Cagri.Scripts.Player
         public float rayHeight;
         public float speed;
         public float jumpHeight;
+        public Animator playerAnimatorController;
         
         private Rigidbody _rb;
         private bool _isGrounded;
@@ -28,10 +29,14 @@ namespace Cagri.Scripts.Player
             }
             if (Input.GetKey(KeyCode.A))
             {
+                playerAnimatorController.SetBool("Walk", true);
+
                 _rb.velocity = (-transform.right* (speed * Time.fixedDeltaTime)) +new Vector3(0,_rb.velocity.y,0);
             }
             if (Input.GetKey(KeyCode.D))
             {
+                playerAnimatorController.SetBool("Walk", true);
+
                 _rb.velocity = ((transform.right) * (Time.fixedDeltaTime * speed))+new Vector3(0,_rb.velocity.y,0);
             }
         }
@@ -48,6 +53,8 @@ namespace Cagri.Scripts.Player
         {
             if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
             {
+                playerAnimatorController.SetBool("Idle", false);
+                playerAnimatorController.SetTrigger("Jump");
                 _rb.velocity = new Vector3(0, jumpHeight, 0);
             }
         }
