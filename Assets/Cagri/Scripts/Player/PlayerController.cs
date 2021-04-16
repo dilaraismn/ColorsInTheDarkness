@@ -25,7 +25,7 @@ namespace Cagri.Scripts.Player
         {
             if (!_isGrounded)
             {
-                _rb.AddForce(0,-5,0,ForceMode.Impulse);
+                _rb.AddForce(0,-2,0,ForceMode.Impulse);
             }
             if (Input.GetKey(KeyCode.A))
             {
@@ -53,7 +53,6 @@ namespace Cagri.Scripts.Player
         {
             if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
             {
-                playerAnimatorController.SetBool("Idle", false);
                 playerAnimatorController.SetTrigger("Jump");
                 _rb.velocity = new Vector3(0, jumpHeight, 0);
             }
@@ -63,6 +62,8 @@ namespace Cagri.Scripts.Player
         {
             if (Input.GetKeyUp(KeyCode.A)|| Input.GetKeyUp(KeyCode.D))
             {
+                playerAnimatorController.SetBool("Walk", false);
+
                 _rb.velocity = Vector3.zero;
             }
         }
