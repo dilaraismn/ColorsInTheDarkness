@@ -14,6 +14,7 @@ namespace Cagri.Scripts.Player
         private Rigidbody _rb;
         private bool _isGrounded;
         
+        
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
@@ -84,7 +85,6 @@ namespace Cagri.Scripts.Player
             switch (GameManager.manager.CurrentGameState)
             {
                 case GameManager.GameState.Prepare:
-               
                     break;
                 case GameManager.GameState.MainGame:
                     PlayerMovement();
@@ -95,5 +95,8 @@ namespace Cagri.Scripts.Player
                     throw new ArgumentOutOfRangeException();
             }
         }
+
+        
+        
     }
 }

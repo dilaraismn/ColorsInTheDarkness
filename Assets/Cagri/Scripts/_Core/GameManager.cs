@@ -8,7 +8,9 @@ namespace Cagri.Scripts._Core
    {
       public static Camera cam;
       public static GameManager manager;
-      
+
+      public Transform camPlayerPos;
+      public Transform camRoot;
       
       public enum GameState
       {
@@ -69,12 +71,22 @@ namespace Cagri.Scripts._Core
                break;
             case GameState.MainGame:
                player.IsGrounded();
+               CamFollow();
                break;
             case GameState.FinishGame:
                break;
             default:
                throw new ArgumentOutOfRangeException();
          }
+      }
+      
+      private void CamFollow()
+      {
+         camPlayerPos.position = Vector3.Lerp(camPlayerPos.position, player.transform.position, Time.deltaTime*1.5f);
+         
+         cam.transform.SetParent(camRoot);
+         cam.transform.localPosition = Vector3.Lerp(cam.transform.localPosition,Vector3.zero, Time.deltaTime*2.5f);
+         cam.transform.localRotation = Quaternion.Lerp(cam.transform.localRotation,Quaternion.identity, Time.deltaTime*2.5f);
       }
       
    }
