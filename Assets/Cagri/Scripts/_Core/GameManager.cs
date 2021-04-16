@@ -1,4 +1,5 @@
 using System;
+using Cagri.Scripts.Player;
 using UnityEngine;
 
 namespace Cagri.Scripts._Core
@@ -16,6 +17,8 @@ namespace Cagri.Scripts._Core
          FinishGame,
       }
       private bool _startPrepare;
+
+      public PlayerController player;
       
       private GameState _currentGameState;
 
@@ -27,7 +30,6 @@ namespace Cagri.Scripts._Core
             switch (value)
             {
                case GameState.Prepare:
-                  
                   
                   _startPrepare = true;
                   
@@ -63,9 +65,10 @@ namespace Cagri.Scripts._Core
                {
                   return;
                }
-               Debug.Log("1");
+               CurrentGameState = GameState.MainGame;
                break;
             case GameState.MainGame:
+               player.IsGrounded();
                break;
             case GameState.FinishGame:
                break;
