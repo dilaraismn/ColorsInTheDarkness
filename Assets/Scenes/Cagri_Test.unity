@@ -38,7 +38,7 @@ RenderSettings:
   m_ReflectionIntensity: 1
   m_CustomReflection: {fileID: 0}
   m_Sun: {fileID: 0}
-  m_IndirectSpecularColor: {r: 0.18028378, g: 0.22571412, b: 0.30692285, a: 1}
+  m_IndirectSpecularColor: {r: 0.18028334, g: 0.2257134, b: 0.30692226, a: 1}
   m_UseRadianceAmbientProbe: 0
 --- !u!157 &3
 LightmapSettings:
@@ -497,7 +497,7 @@ BoxCollider:
   m_GameObject: {fileID: 841119539}
   m_Material: {fileID: 0}
   m_IsTrigger: 1
-  m_Enabled: 1
+  m_Enabled: 0
   serializedVersion: 2
   m_Size: {x: 0.24762201, y: 0.13732217, z: 0.20360401}
   m_Center: {x: -0.010059052, y: -0.034871273, z: -0.035048876}
@@ -531,6 +531,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a8108a0f688e492499a44dff7abffe92, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  currentCollectableType: 0
   cObject: {fileID: 0}
 --- !u!65 &865367794
 BoxCollider:
@@ -696,6 +697,7 @@ MonoBehaviour:
   camPlayerPos: {fileID: 1778627409}
   camRoot: {fileID: 1437659850}
   player: {fileID: 107866088}
+  finishDoorOpen: 0
 --- !u!4 &1211285802
 Transform:
   m_ObjectHideFlags: 0
@@ -1455,6 +1457,7 @@ GameObject:
   m_Component:
   - component: {fileID: 543450652404129975}
   - component: {fileID: 5866666020722014925}
+  - component: {fileID: 919132148201486862}
   m_Layer: 0
   m_Name: theboss@Dwarf Walk
   m_TagString: Untagged
@@ -1462,6 +1465,18 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &919132148201486862
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 919132148201486861}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c5e961f94b420d041b81945ac2d5c5ff, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!4 &944926141958211903
 Transform:
   m_ObjectHideFlags: 0
