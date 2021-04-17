@@ -34,24 +34,29 @@ namespace Cagri.Scripts.Player
         {
             _rb = GetComponent<Rigidbody>();
         }
-
+        
         private void PlayerMovement()
         {
             if (!_isGrounded)
             {
+                playerAnimatorController.SetBool("Walk",false);
                 _rb.AddForce(0,-2,0,ForceMode.Impulse);
+                return;
             }
             if (Input.GetKey(KeyCode.A))
             {
                 playerAnimatorController.SetBool("Walk", true);
 
                 _rb.velocity = (-transform.right* (speed * Time.fixedDeltaTime)) +new Vector3(0,_rb.velocity.y,0);
+                transform.localScale = new Vector3(-1, 1, 1);
             }
             if (Input.GetKey(KeyCode.D))
             {
                 playerAnimatorController.SetBool("Walk", true);
 
                 _rb.velocity = ((transform.right) * (Time.fixedDeltaTime * speed))+new Vector3(0,_rb.velocity.y,0);
+                transform.localScale = new Vector3(1, 1, 1);
+
             }
         }
 

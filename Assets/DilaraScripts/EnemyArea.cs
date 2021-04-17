@@ -11,7 +11,11 @@ public class EnemyArea : MonoBehaviour
         PlayerController player = collider.GetComponent<PlayerController>();
         if (player)
         {
-            enemy.SetActive(true);
+            if (enemy!=null)
+            {
+                enemy.SetActive(true);
+
+            }
         }
     }
 }
