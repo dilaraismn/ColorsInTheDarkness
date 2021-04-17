@@ -6,16 +6,27 @@ namespace Cagri.Scripts.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        //todo her odada başka enemy spawn
+        //todo dayı öldüğünde oyun biticek - uı
+        //todo uı
+        //todo credits
+        //todo musics
+        //todo nesne toplama
+        //todo toplanan nesne ui yazdırma 4/5 toplandı gibi
+        //todo siyah beyaz efekti 
+        //todo toplanılacaklar maskelenecek
+        //todo her nesne için bir yer
+        //todo tüm nesne yerleri dolduğunda kapı açılıcak
+        //todo oyun bitiş 
         
         public float rayHeight;
         public float speed;
         public float jumpHeight;
         public Animator playerAnimatorController;
-        
         private Rigidbody _rb;
         private bool _isGrounded;
-        
-        
+        public int _health = 100;
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
@@ -25,7 +36,7 @@ namespace Cagri.Scripts.Player
         {
             if (!_isGrounded)
             {
-                _rb.AddForce(0,-5,0,ForceMode.Impulse);
+                _rb.AddForce(0,-2,0,ForceMode.Impulse);
             }
             if (Input.GetKey(KeyCode.A))
             {
@@ -53,7 +64,6 @@ namespace Cagri.Scripts.Player
         {
             if (Input.GetKeyDown(KeyCode.Space) && _isGrounded)
             {
-                playerAnimatorController.SetBool("Idle", false);
                 playerAnimatorController.SetTrigger("Jump");
                 _rb.velocity = new Vector3(0, jumpHeight, 0);
             }
@@ -63,7 +73,17 @@ namespace Cagri.Scripts.Player
         {
             if (Input.GetKeyUp(KeyCode.A)|| Input.GetKeyUp(KeyCode.D))
             {
+                playerAnimatorController.SetBool("Walk", false);
+
                 _rb.velocity = Vector3.zero;
+            }
+        }
+
+        private void Attack()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                playerAnimatorController.SetTrigger("HitEnemy");
             }
         }
 
@@ -71,6 +91,7 @@ namespace Cagri.Scripts.Player
 
         private void Update()
         {
+            //Debug.Log(_health);
             switch (GameManager.manager.CurrentGameState)
             {
                 case GameManager.GameState.Prepare:
@@ -78,6 +99,7 @@ namespace Cagri.Scripts.Player
                 case GameManager.GameState.MainGame:
                     InputFrameVelocityControl();
                     Jump();
+                    Attack();
                     break;
                 case GameManager.GameState.FinishGame:
                     break;
@@ -102,8 +124,5 @@ namespace Cagri.Scripts.Player
                     throw new ArgumentOutOfRangeException();
             }
         }
-
-        
-        
     }
 }
