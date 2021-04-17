@@ -6,6 +6,18 @@ namespace Cagri.Scripts.Player
 {
     public class PlayerController : MonoBehaviour
     {
+        //todo her odada başka enemy spawn
+        //todo dayı öldüğünde oyun biticek - uı
+        //todo uı
+        //todo credits
+        //todo musics
+        //todo nesne toplama
+        //todo toplanan nesne ui yazdırma 4/5 toplandı gibi
+        //todo siyah beyaz efekti 
+        //todo toplanılacaklar maskelenecek
+        //todo her nesne için bir yer
+        //todo tüm nesne yerleri dolduğunda kapı açılıcak
+        //todo oyun bitiş 
         
         public float rayHeight;
         public float speed;
@@ -79,7 +91,7 @@ namespace Cagri.Scripts.Player
 
         private void Update()
         {
-            Debug.Log(_health);
+            //Debug.Log(_health);
             switch (GameManager.manager.CurrentGameState)
             {
                 case GameManager.GameState.Prepare:

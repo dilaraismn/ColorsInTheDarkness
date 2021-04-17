@@ -5,8 +5,6 @@ using UnityEngine;
 using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
-    
-    //todo 5. player yumruk atinca olcek
 
 {
     //look to player
