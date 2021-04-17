@@ -11,11 +11,9 @@ namespace Cagri.Scripts.Player
         public float speed;
         public float jumpHeight;
         public Animator playerAnimatorController;
-        
         private Rigidbody _rb;
         private bool _isGrounded;
-        
-        
+
         private void Awake()
         {
             _rb = GetComponent<Rigidbody>();
@@ -103,8 +101,6 @@ namespace Cagri.Scripts.Player
                     throw new ArgumentOutOfRangeException();
             }
         }
-
-        
         
     }
 }
