@@ -47,18 +47,16 @@ namespace Cagri.Scripts._Core
             _currentGameState = value;
          }
       }
-   
+
+      [HideInInspector] public bool finishDoorOpen;
+      
       private void Awake()
       {
          cam=Camera.main;
          manager = this;
-      }
-
-      private void Start()
-      {
          CurrentGameState = GameState.Prepare;
       }
-
+      
       private void Update()
       {
          switch (CurrentGameState)

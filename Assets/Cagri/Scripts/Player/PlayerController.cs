@@ -11,10 +11,13 @@ namespace Cagri.Scripts.Player
         //todo uı
         //todo credits
         //todo musics
+        
         //todo nesne toplama
         //todo toplanan nesne ui yazdırma 4/5 toplandı gibi
+        
         //todo siyah beyaz efekti 
         //todo toplanılacaklar maskelenecek
+        
         //todo her nesne için bir yer
         //todo tüm nesne yerleri dolduğunda kapı açılıcak
         //todo oyun bitiş 
@@ -25,7 +28,7 @@ namespace Cagri.Scripts.Player
         public Animator playerAnimatorController;
         private Rigidbody _rb;
         private bool _isGrounded;
-        public int _health = 100;
+        [HideInInspector] public int _health = 100;
 
         private void Awake()
         {
