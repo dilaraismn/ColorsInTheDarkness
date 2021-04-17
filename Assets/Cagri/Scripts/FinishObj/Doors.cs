@@ -1,5 +1,6 @@
 using System;
 using System.Collections;
+using System.Collections.Generic;
 using Cagri.Scripts._Core;
 using Cagri.Scripts.Player;
 using UnityEngine;
@@ -12,11 +13,15 @@ namespace Cagri.Scripts.FinishObj
 
         private Quaternion _startDoorRot;
         private Vector3 _startDoorEuler;
-        private Collider _collider;
+        private List<Collider> _colliderList=new List<Collider>();
 
         private void Awake()
         {
-            _collider = GetComponent<Collider>();
+            var colliders = GetComponents<Collider>();
+            foreach (Collider collider1 in colliders)
+            {
+                _colliderList.Add(collider1);
+            }
         }
 
         private void Start()
@@ -40,12 +45,16 @@ namespace Cagri.Scripts.FinishObj
             {
                 if (Input.GetKeyDown(KeyCode.E))
                 {
-                    _collider.enabled = false;
-                     switch (currentDoorType)
+                    switch (currentDoorType)
                 {
                     case DoorsType.Door:
+                        for (int i = 0; i < _colliderList.Count; i++)
+                        {
+                            _colliderList[i].enabled = false;
+                        }
                         if (!_openDoor)
                         {
+                            
                             StartCoroutine(OpenDoor());
                         }
                         else
@@ -56,6 +65,10 @@ namespace Cagri.Scripts.FinishObj
                     case DoorsType.FinishDoor:
                         if (GameManager.manager.finishDoorOpen)
                         {
+                            for (int i = 0; i < _colliderList.Count; i++)
+                            {
+                                _colliderList[i].enabled = false;
+                            }
                             if (!_openDoor)
                             {
                                 StartCoroutine(OpenDoor());
@@ -77,6 +90,7 @@ namespace Cagri.Scripts.FinishObj
         {
             var wait = new WaitForEndOfFrame();
             float timer = 0f;
+            _colliderList[0].enabled = true;
             while (true)
             {
                 timer += Time.deltaTime;
@@ -84,9 +98,8 @@ namespace Cagri.Scripts.FinishObj
                 if (timer>=1f)
                 {
                     _openDoor = true;
-                    _collider.enabled = true;
+                    _colliderList[1].enabled = true;
                     break;
-                    
                 }
                 yield return wait;
             }
@@ -95,6 +108,7 @@ namespace Cagri.Scripts.FinishObj
         {
             var wait = new WaitForEndOfFrame();
             float timer = 0f;
+            _colliderList[0].enabled = true;
             while (true)
             {
                 timer += Time.deltaTime;
@@ -102,7 +116,7 @@ namespace Cagri.Scripts.FinishObj
                 if (timer >= 1f)
                 {
                     _openDoor = false;
-                    _collider.enabled = true;
+                    _colliderList[1].enabled = true;
                     break;
                 }
                 yield return wait;
