@@ -12,6 +12,7 @@ namespace Cagri.Scripts._Core
       public Transform camPlayerPos;
       public Transform camRoot;
       
+      
       public enum GameState
       {
          Prepare,
@@ -72,6 +73,7 @@ namespace Cagri.Scripts._Core
             case GameState.MainGame:
                player.IsGrounded();
                CamFollow();
+               KillPlayer();
                break;
             case GameState.FinishGame:
                break;
@@ -88,6 +90,14 @@ namespace Cagri.Scripts._Core
          cam.transform.localPosition = Vector3.Lerp(cam.transform.localPosition,Vector3.zero, Time.deltaTime*2.5f);
          cam.transform.localRotation = Quaternion.Lerp(cam.transform.localRotation,Quaternion.identity, Time.deltaTime*2.5f);
       }
-      
+
+      private void KillPlayer()
+      {
+         if (player._health <= 0)
+         {
+            player.playerAnimatorController.SetTrigger("PlayerDeath");
+            CurrentGameState = GameState.FinishGame;
+         }
+      }
    }
 }

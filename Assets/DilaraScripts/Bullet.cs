@@ -2,6 +2,7 @@ using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cagri.Scripts._Core;
+using Cagri.Scripts.Player;
 using UnityEngine;
 
 public class Bullet : MonoBehaviour
@@ -26,7 +27,11 @@ public class Bullet : MonoBehaviour
     private void OnCollisionEnter(Collision other)
     {
         Instantiate(particle, transform.position, Quaternion.identity);
+        PlayerController player = other.gameObject.GetComponent<PlayerController>();
+        if (player)
+        {
+            player._health -= 5;
+        }
         Destroy(gameObject);
-        //todo particle
     }
 }

@@ -13,6 +13,7 @@ namespace Cagri.Scripts.Player
         public Animator playerAnimatorController;
         private Rigidbody _rb;
         private bool _isGrounded;
+        public int _health = 100;
 
         private void Awake()
         {
@@ -70,6 +71,7 @@ namespace Cagri.Scripts.Player
 
         private void Update()
         {
+            Debug.Log(_health);
             switch (GameManager.manager.CurrentGameState)
             {
                 case GameManager.GameState.Prepare:
@@ -101,6 +103,5 @@ namespace Cagri.Scripts.Player
                     throw new ArgumentOutOfRangeException();
             }
         }
-        
     }
 }
