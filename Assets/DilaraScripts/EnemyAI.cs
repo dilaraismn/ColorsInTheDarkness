@@ -6,8 +6,6 @@ using UnityEngine.AI;
 
 public class EnemyAI : MonoBehaviour
     
-    
-    // todo damage to player
     //todo 5. player yumruk atinca olcek
 
 {

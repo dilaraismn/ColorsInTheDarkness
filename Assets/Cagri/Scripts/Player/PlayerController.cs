@@ -67,6 +67,14 @@ namespace Cagri.Scripts.Player
             }
         }
 
+        private void Attack()
+        {
+            if (Input.GetMouseButtonDown(0))
+            {
+                playerAnimatorController.SetTrigger("HitEnemy");
+            }
+        }
+
 
 
         private void Update()
@@ -79,6 +87,7 @@ namespace Cagri.Scripts.Player
                 case GameManager.GameState.MainGame:
                     InputFrameVelocityControl();
                     Jump();
+                    Attack();
                     break;
                 case GameManager.GameState.FinishGame:
                     break;
