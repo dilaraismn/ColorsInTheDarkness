@@ -34,11 +34,10 @@ namespace Cagri.Scripts._Core
             {
                case GameState.Prepare:
                   _startPrepare = true;
-                  UIManager.manager.startGameUi.SetActive(true);
-                  
+                  //UIManager.manager.startGameUi.SetActive(true);
                   break;
                case GameState.MainGame:
-                  UIManager.manager.inGameUi.SetActive(true);
+                  //UIManager.manager.inGameUi.SetActive(true);
 
                   break;
                case GameState.FinishGame:
@@ -78,6 +77,8 @@ namespace Cagri.Scripts._Core
                {
                   return;
                }
+               CurrentGameState = GameState.MainGame;
+
                break;
             case GameState.MainGame:
                player.IsGrounded();
