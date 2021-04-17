@@ -24,7 +24,7 @@ namespace Cagri.Scripts._Core
       public PlayerController player;
       
       private GameState _currentGameState;
-
+      [HideInInspector]public bool winGame;
       public GameState CurrentGameState
       {
          get { return _currentGameState;}
@@ -33,13 +33,26 @@ namespace Cagri.Scripts._Core
             switch (value)
             {
                case GameState.Prepare:
-                  
                   _startPrepare = true;
+                  UIManager.manager.startGameUi.SetActive(true);
                   
                   break;
                case GameState.MainGame:
+                  UIManager.manager.inGameUi.SetActive(true);
+
                   break;
                case GameState.FinishGame:
+                  UIManager.manager.inGameUi.SetActive(false);
+                  UIManager.manager.finishGameUi.SetActive(false);
+                  if (winGame)
+                  {
+                     UIManager.manager.winGameUI.SetActive(true);
+                  }
+                  else
+                  {
+                     UIManager.manager.loseGameUI.SetActive(false);
+                  }
+
                   break;
                default:
                   throw new ArgumentOutOfRangeException(nameof(value), value, null);
@@ -54,7 +67,6 @@ namespace Cagri.Scripts._Core
       {
          cam=Camera.main;
          manager = this;
-         CurrentGameState = GameState.Prepare;
       }
       
       private void Update()
@@ -66,7 +78,6 @@ namespace Cagri.Scripts._Core
                {
                   return;
                }
-               CurrentGameState = GameState.MainGame;
                break;
             case GameState.MainGame:
                player.IsGrounded();
@@ -94,6 +105,7 @@ namespace Cagri.Scripts._Core
          if (player._health <= 0)
          {
             player.playerAnimatorController.SetTrigger("PlayerDeath");
+            winGame = false;
             CurrentGameState = GameState.FinishGame;
          }
       }

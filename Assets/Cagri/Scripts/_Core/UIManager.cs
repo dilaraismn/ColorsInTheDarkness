@@ -1,5 +1,8 @@
 using System;
+using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 namespace Cagri.Scripts._Core
 {
@@ -10,6 +13,9 @@ namespace Cagri.Scripts._Core
         public GameObject startGameUi;
         public GameObject inGameUi;
         public GameObject finishGameUi;
+
+        public GameObject winGameUI;
+        public GameObject loseGameUI;
         
         public GameObject moneyPicture;
         public GameObject timePicture;
@@ -30,16 +36,37 @@ namespace Cagri.Scripts._Core
             timePicture.SetActive(false);
             pcPicture.SetActive(false);
             alcoholPicture.SetActive(false);
+            winGameUI.SetActive(false);
+            loseGameUI.SetActive(false);
             manager = this;
+            
+            GameManager.manager.CurrentGameState = GameManager.GameState.Prepare;
         }
 
 
         private void Update()
         {
-            if (moneyCollect&&timeCollect&&pcCollect&&alcoholCollect)
+            if (moneyCollect&&timeCollect&&pcCollect&&alcoholCollect&&!GameManager.manager.finishDoorOpen)
             {
                 GameManager.manager.finishDoorOpen = true;
             }
+        }
+
+        public void StartGameButton()
+        {
+            StartCoroutine(StartUIDisable());
+        }
+
+        IEnumerator StartUIDisable()
+        {
+            startGameUi.SetActive(false);
+            yield return new WaitForSeconds(2f);
+            GameManager.manager.CurrentGameState = GameManager.GameState.MainGame;
+        }
+
+        public void RetryButton()
+        {
+            SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
     }
 }
