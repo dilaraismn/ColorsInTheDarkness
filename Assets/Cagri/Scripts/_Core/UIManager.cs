@@ -27,19 +27,28 @@ namespace Cagri.Scripts._Core
         [HideInInspector]public bool pcCollect;
         [HideInInspector]public bool alcoholCollect;
 
+        public bool ui;
         private void Awake()
         {
-            inGameUi.SetActive(false);
-            startGameUi.SetActive(false);
-            finishGameUi.SetActive(false);
-            moneyPicture.SetActive(false);
-            timePicture.SetActive(false);
-            pcPicture.SetActive(false);
-            alcoholPicture.SetActive(false);
-            winGameUI.SetActive(false);
-            loseGameUI.SetActive(false);
+            if (ui)
+            {
+                inGameUi.SetActive(false);
+                startGameUi.SetActive(false);
+                finishGameUi.SetActive(false);
+                moneyPicture.SetActive(false);
+                timePicture.SetActive(false);
+                pcPicture.SetActive(false);
+                alcoholPicture.SetActive(false);
+                winGameUI.SetActive(false);
+                loseGameUI.SetActive(false);
+            }
+            
             manager = this;
             
+        }
+
+        private void Start()
+        {
             GameManager.manager.CurrentGameState = GameManager.GameState.Prepare;
         }
 
