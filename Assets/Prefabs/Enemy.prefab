@@ -112,7 +112,7 @@ MonoBehaviour:
   MoveSpeed: 5
   MinDistance: 2
   bullet: {fileID: 3523122954031356868, guid: 028fe504fbf8ea5428e4afad5f5268ae, type: 3}
-  fireRate: 2
+  fireRate: 1
 --- !u!1001 &3014742419330141968
 PrefabInstance:
   m_ObjectHideFlags: 0

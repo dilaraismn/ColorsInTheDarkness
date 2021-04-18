@@ -1233,7 +1233,7 @@ AudioSource:
   OutputAudioMixerGroup: {fileID: 0}
   m_audioClip: {fileID: 0}
   m_PlayOnAwake: 0
-  m_Volume: 1
+  m_Volume: 0.559
   m_Pitch: 1
   Loop: 1
   Mute: 0
@@ -2248,10 +2248,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: Enemy
       objectReference: {fileID: 0}
-    - target: {fileID: 2006776976294820946, guid: 51882c31dd729e642afcec66308d6c53, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 2006776976294820950, guid: 51882c31dd729e642afcec66308d6c53, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -2295,22 +2291,6 @@ PrefabInstance:
     - target: {fileID: 2006776976294820950, guid: 51882c31dd729e642afcec66308d6c53, type: 3}
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2006776976294820951, guid: 51882c31dd729e642afcec66308d6c53, type: 3}
-      propertyPath: bullet
-      value: 
-      objectReference: {fileID: 3523122954031356868, guid: 028fe504fbf8ea5428e4afad5f5268ae, type: 3}
-    - target: {fileID: 2006776976294820951, guid: 51882c31dd729e642afcec66308d6c53, type: 3}
-      propertyPath: fireRate
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2006776976294820951, guid: 51882c31dd729e642afcec66308d6c53, type: 3}
-      propertyPath: MinDistance
-      value: 2
-      objectReference: {fileID: 0}
-    - target: {fileID: 2006776976294820951, guid: 51882c31dd729e642afcec66308d6c53, type: 3}
-      propertyPath: bulletSpeed
-      value: 10
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 51882c31dd729e642afcec66308d6c53, type: 3}
@@ -4063,14 +4043,6 @@ PrefabInstance:
     - target: {fileID: 6049310664447741083, guid: fb4a8b3c6939ab244b9a0883a29d8824, type: 3}
       propertyPath: m_Name
       value: EnemyTime
-      objectReference: {fileID: 0}
-    - target: {fileID: 6049310664447741083, guid: fb4a8b3c6939ab244b9a0883a29d8824, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 6049310664447741086, guid: fb4a8b3c6939ab244b9a0883a29d8824, type: 3}
-      propertyPath: MinDistance
-      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 6049310664447741087, guid: fb4a8b3c6939ab244b9a0883a29d8824, type: 3}
       propertyPath: m_RootOrder
@@ -6657,10 +6629,6 @@ PrefabInstance:
       propertyPath: m_Name
       value: EnemyPc
       objectReference: {fileID: 0}
-    - target: {fileID: 6699459563607846465, guid: 08efb746918498041ac1724f5f9cf31c, type: 3}
-      propertyPath: m_IsActive
-      value: 0
-      objectReference: {fileID: 0}
     - target: {fileID: 6699459563607846469, guid: 08efb746918498041ac1724f5f9cf31c, type: 3}
       propertyPath: m_RootOrder
       value: 0
@@ -7728,10 +7696,6 @@ PrefabInstance:
     - target: {fileID: 2854539026718101551, guid: 91d63d094fd39424190349c14b86f9ef, type: 3}
       propertyPath: m_Name
       value: EnemyCigarette
-      objectReference: {fileID: 0}
-    - target: {fileID: 2854539026718101551, guid: 91d63d094fd39424190349c14b86f9ef, type: 3}
-      propertyPath: m_IsActive
-      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 91d63d094fd39424190349c14b86f9ef, type: 3}
