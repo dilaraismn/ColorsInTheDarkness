@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Cagri.Scripts.Player;
 using UnityEngine;
@@ -56,8 +57,8 @@ namespace Cagri.Scripts._Core
                   }
                   else
                   {
-                     UIManager.manager.loseGameUI.SetActive(true);
-                     AudioController.instance.PlayAudio(AudioType.Oyun1);
+                     StartCoroutine(LoseGameDelay());
+         
                   }
 
                   break;
@@ -66,6 +67,13 @@ namespace Cagri.Scripts._Core
             }
             _currentGameState = value;
          }
+      }
+
+      IEnumerator LoseGameDelay()
+      {
+         yield return new WaitForSeconds(3f);
+         UIManager.manager.loseGameUI.SetActive(true);
+         AudioController.instance.PlayAudio(AudioType.Oyun1);
       }
 
       [HideInInspector] public bool watchMod;
