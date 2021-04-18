@@ -30,8 +30,11 @@ public class Bullet : MonoBehaviour
         PlayerController player = other.gameObject.GetComponent<PlayerController>();
         if (player)
         {
-            player._health -= 5;
-            AudioController.instance.PlayAudio(AudioType.SFX2);
+            if (player._health>0f)
+            {
+                player._health -= 5;
+                AudioController.instance.PlayAudio(AudioType.SFX2);
+            }
         }
         Destroy(gameObject);
     }

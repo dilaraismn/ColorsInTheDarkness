@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using Cagri.Scripts._Core;
@@ -17,11 +18,23 @@ public class EnemyAI : MonoBehaviour
     
     private void Update()
     {
-        if (gameObject.active);
+        switch (GameManager.manager.CurrentGameState)
         {
-            LookToPlayer();
-            AttackPlayer();
+            case GameManager.GameState.Prepare:
+                break;
+            case GameManager.GameState.MainGame:
+                if (gameObject.active);
+                {
+                    LookToPlayer();
+                    AttackPlayer();
+                }
+                break;
+            case GameManager.GameState.FinishGame:
+                break;
+            default:
+                throw new ArgumentOutOfRangeException();
         }
+        
 
     }
     private void LookToPlayer()

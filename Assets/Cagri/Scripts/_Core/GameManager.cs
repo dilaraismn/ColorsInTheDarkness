@@ -1,4 +1,5 @@
 using System;
+using System.Collections;
 using System.Collections.Generic;
 using Cagri.Scripts.Player;
 using UnityEngine;
@@ -56,7 +57,7 @@ namespace Cagri.Scripts._Core
                   }
                   else
                   {
-                     UIManager.manager.loseGameUI.SetActive(true);
+                     StartCoroutine(LoseGameUI());
                   }
 
                   break;
@@ -65,6 +66,12 @@ namespace Cagri.Scripts._Core
             }
             _currentGameState = value;
          }
+      }
+
+      IEnumerator LoseGameUI()
+      {
+         yield return new WaitForSeconds(3f);
+         UIManager.manager.loseGameUI.SetActive(true);
       }
 
       [HideInInspector] public bool watchMod;
