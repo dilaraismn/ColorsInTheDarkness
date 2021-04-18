@@ -48,15 +48,16 @@ namespace Cagri.Scripts._Core
                case GameState.FinishGame:
                   UIManager.manager.inGameUi.SetActive(false);
                   AudioController.instance.StopAudio(AudioType.Oyun2, true, 1f, 0f);
-                  //AudioController.instance.PlayAudio(AudioType.Oyun3);
                   UIManager.manager.finishGameUi.SetActive(true);
                   if (winGame)
                   {
                      UIManager.manager.winGameUI.SetActive(true);
+                     AudioController.instance.PlayAudio(AudioType.Oyun3);
                   }
                   else
                   {
                      UIManager.manager.loseGameUI.SetActive(true);
+                     AudioController.instance.PlayAudio(AudioType.Oyun1);
                   }
 
                   break;
