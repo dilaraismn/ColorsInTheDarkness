@@ -9,45 +9,76 @@ public class Collectable : MonoBehaviour
 {
     public enum CollectableType
     {
-        Money,
-        Time,
-        Pc,
-        Alcohol,
+        Book,
+        Duck,
+        Guitar,
     }
 
     public CollectableType currentCollectableType;
     
-    public GameObject cObject;
     private void OnTriggerStay(Collider other)
     {
         PlayerController player = other.GetComponent<PlayerController>();
         if (player)
         {
+            player.collectableTextActive.gameObject.SetActive(true);
             if(Input.GetKeyDown(KeyCode.E))
             {
                 switch (currentCollectableType)
                 {
-                    case CollectableType.Money:
-                        UIManager.manager.moneyPicture.SetActive(true);
-                        UIManager.manager.moneyCollect = true;
+                    case CollectableType.Book:
+                        UIManager.manager.bookPicture.SetActive(true);
+                        UIManager.manager.bookCollect = true;
+                        player.collectableTextActive.gameObject.SetActive(false);
                         break;
-                    case CollectableType.Time:
-                        UIManager.manager.timePicture.SetActive(true);
-                        UIManager.manager.timeCollect = true;
+                    case CollectableType.Duck:
+                        UIManager.manager.duckPicture.SetActive(true);
+                        UIManager.manager.duckCollect = true;
+                        player.collectableTextActive.gameObject.SetActive(false);
                         break;
-                    case CollectableType.Pc:
-                        UIManager.manager.pcPicture.SetActive(true);
-                        UIManager.manager.pcCollect = true;
-                        break;
-                    case CollectableType.Alcohol:
-                        UIManager.manager.alcoholPicture.SetActive(true);
-                        UIManager.manager.alcoholCollect = true;
+                    case CollectableType.Guitar:
+                        UIManager.manager.guitarPicture.SetActive(true);
+                        UIManager.manager.guitarCollect = true;
+                        player.collectableTextActive.gameObject.SetActive(false);
                         break;
                     default:
                         throw new ArgumentOutOfRangeException();
                 }
-                Destroy(gameObject); //todo maybe cObject
+                GetComponent<Collider>().enabled = false;
+                GameManager.manager.collectableList.Add(gameObject);
+                gameObject.SetActive(false); 
             }
+        }
+    }
+
+    private void OnTriggerEnter(Collider other)
+    {
+        PlayerController player = other.GetComponent<PlayerController>();
+        if (player)
+        {
+            switch (currentCollectableType)
+            {
+                case CollectableType.Book:
+                    player.collectableTextActive.text = "Collectable  Scriptinde Kitap Icin  Degistir";
+                    break;
+                case CollectableType.Duck:
+                    player.collectableTextActive.text = "Collectable Scriptinde Ordek Icin Degistir";
+                    break;
+                case CollectableType.Guitar:  
+                    player.collectableTextActive.text = "Collectable Scriptinde Gitar Icin Degistir";
+                    break;
+                default:
+                    throw new ArgumentOutOfRangeException();
+            }
+        }
+    }
+
+    private void OnTriggerExit(Collider other)
+    {
+        PlayerController player = other.GetComponent<PlayerController>();
+        if (player)
+        {
+            player.collectableTextActive.gameObject.SetActive(false);
         }
     }
 }

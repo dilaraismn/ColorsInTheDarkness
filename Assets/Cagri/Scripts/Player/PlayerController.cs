@@ -6,26 +6,30 @@ namespace Cagri.Scripts.Player
 {
     public class PlayerController : MonoBehaviour
     {
-        //todo her odada başka enemy spawn
-        //todo dayı öldüğünde oyun biticek - uı
+       
         //todo uı
-        //todo credits
+       
         //todo musics
         
-        //todo nesne toplama
         //todo toplanan nesne ui yazdırma 4/5 toplandı gibi
         
         //todo siyah beyaz efekti 
         //todo toplanılacaklar maskelenecek
         
-        //todo her nesne için bir yer
-        //todo tüm nesne yerleri dolduğunda kapı açılıcak
         //todo oyun bitiş 
-        
+        [Header("Jump Ray")]
         public float rayHeight;
+
+        [Header("Player")]
         public float speed;
         public float jumpHeight;
+        [Header("Player Model")]
         public Animator playerAnimatorController;
+        public Transform playerModel;
+        [Header("3D Text Player")]
+        public TextMesh collectableTextActive;
+        public TextMesh ayinTextActive;
+        
         private Rigidbody _rb;
         private bool _isGrounded;
         [HideInInspector] public int _health = 100;
@@ -48,14 +52,14 @@ namespace Cagri.Scripts.Player
                 playerAnimatorController.SetBool("Walk", true);
 
                 _rb.velocity = (-transform.right* (speed * Time.fixedDeltaTime)) +new Vector3(0,_rb.velocity.y,0);
-                transform.localScale = new Vector3(-1, 1, 1);
+                playerModel.localScale = new Vector3(-1, 1, 1);
             }
             if (Input.GetKey(KeyCode.D))
             {
                 playerAnimatorController.SetBool("Walk", true);
 
                 _rb.velocity = ((transform.right) * (Time.fixedDeltaTime * speed))+new Vector3(0,_rb.velocity.y,0);
-                transform.localScale = new Vector3(1, 1, 1);
+                playerModel.localScale = new Vector3(1, 1, 1);
 
             }
         }
@@ -105,6 +109,10 @@ namespace Cagri.Scripts.Player
                 case GameManager.GameState.Prepare:
                     break;
                 case GameManager.GameState.MainGame:
+                    if (GameManager.manager.watchMod)
+                    {
+                        return;
+                    }
                     InputFrameVelocityControl();
                     Jump();
                     Attack();
@@ -124,6 +132,10 @@ namespace Cagri.Scripts.Player
                 case GameManager.GameState.Prepare:
                     break;
                 case GameManager.GameState.MainGame:
+                    if (GameManager.manager.watchMod)
+                    {
+                        return;
+                    }
                     PlayerMovement();
                     break;
                 case GameManager.GameState.FinishGame:

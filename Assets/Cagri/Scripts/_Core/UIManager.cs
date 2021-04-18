@@ -10,41 +10,44 @@ namespace Cagri.Scripts._Core
     {
         public static UIManager manager;
 
+        [Header("StartGame")]
         public GameObject startGameUi;
+        public GameObject menuUi;
+        public GameObject creditsUi;
+        
+        [Header("Ingame")]
         public GameObject inGameUi;
-        public GameObject finishGameUi;
 
+        [Header("FinishGame")]
+        public GameObject finishGameUi;
         public GameObject winGameUI;
         public GameObject loseGameUI;
         
-        public GameObject moneyPicture;
-        public GameObject timePicture;
-        public GameObject pcPicture;
-        public GameObject alcoholPicture;
+        [Header("InGameUIImage")]
+        public GameObject bookPicture;
+        public GameObject duckPicture;
+        public GameObject guitarPicture;
 
-        [HideInInspector]public bool moneyCollect;
-        [HideInInspector]public bool timeCollect;
-        [HideInInspector]public bool pcCollect;
-        [HideInInspector]public bool alcoholCollect;
+        [HideInInspector] public bool bookCollect;
+        [HideInInspector] public bool duckCollect;
+        [HideInInspector] public bool guitarCollect;
 
         public bool ui;
+
         private void Awake()
         {
-            if (ui)
-            {
-                inGameUi.SetActive(false);
-                startGameUi.SetActive(false);
-                finishGameUi.SetActive(false);
-                moneyPicture.SetActive(false);
-                timePicture.SetActive(false);
-                pcPicture.SetActive(false);
-                alcoholPicture.SetActive(false);
-                winGameUI.SetActive(false);
-                loseGameUI.SetActive(false);
-            }
-            
+            menuUi.SetActive(false);
+            creditsUi.SetActive(false);
+            inGameUi.SetActive(false);
+            startGameUi.SetActive(false);
+            finishGameUi.SetActive(false);
+            bookPicture.SetActive(false);
+            duckPicture.SetActive(false);
+            guitarPicture.SetActive(false);
+            winGameUI.SetActive(false);
+            loseGameUI.SetActive(false);
             manager = this;
-            
+
         }
 
         private void Start()
@@ -55,7 +58,7 @@ namespace Cagri.Scripts._Core
 
         private void Update()
         {
-            if (moneyCollect&&timeCollect&&pcCollect&&alcoholCollect&&!GameManager.manager.finishDoorOpen)
+            if (bookCollect && duckCollect && guitarCollect && !GameManager.manager.finishDoorOpen)
             {
                 GameManager.manager.finishDoorOpen = true;
             }
@@ -77,5 +80,23 @@ namespace Cagri.Scripts._Core
         {
             SceneManager.LoadScene(SceneManager.GetActiveScene().name);
         }
+
+        public void Credits()
+        {
+            menuUi.SetActive(false);
+            creditsUi.SetActive(true);
+        }
+
+        public void BackMenu()
+        {
+            menuUi.SetActive(true);
+            creditsUi.SetActive(false);
+        }
+
+        public void QuitButton()
+        {
+            Application.Quit();
+        }
+
     }
 }

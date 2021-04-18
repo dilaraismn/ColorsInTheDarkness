@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using Cagri.Scripts.Player;
 using UnityEngine;
 
@@ -8,10 +9,12 @@ namespace Cagri.Scripts._Core
    {
       public static Camera cam;
       public static GameManager manager;
-
+      
+      [Header("Camera")]
       public Transform camPlayerPos;
       public Transform camRoot;
       
+      [HideInInspector]public List<GameObject> collectableList;
       
       public enum GameState
       {
@@ -20,7 +23,7 @@ namespace Cagri.Scripts._Core
          FinishGame,
       }
       private bool _startPrepare;
-
+      [Header("Player")]
       public PlayerController player;
       
       private GameState _currentGameState;
@@ -34,22 +37,22 @@ namespace Cagri.Scripts._Core
             {
                case GameState.Prepare:
                   _startPrepare = true;
-                  //UIManager.manager.startGameUi.SetActive(true);
+                  UIManager.manager.startGameUi.SetActive(true);
+                  UIManager.manager.menuUi.SetActive(true);
                   break;
                case GameState.MainGame:
-                  //UIManager.manager.inGameUi.SetActive(true);
-
+                  UIManager.manager.inGameUi.SetActive(true);
                   break;
                case GameState.FinishGame:
                   UIManager.manager.inGameUi.SetActive(false);
-                  UIManager.manager.finishGameUi.SetActive(false);
+                  UIManager.manager.finishGameUi.SetActive(true);
                   if (winGame)
                   {
                      UIManager.manager.winGameUI.SetActive(true);
                   }
                   else
                   {
-                     UIManager.manager.loseGameUI.SetActive(false);
+                     UIManager.manager.loseGameUI.SetActive(true);
                   }
 
                   break;
@@ -60,6 +63,7 @@ namespace Cagri.Scripts._Core
          }
       }
 
+      [HideInInspector] public bool watchMod;
       [HideInInspector] public bool finishDoorOpen;
       
       private void Awake()
@@ -75,12 +79,15 @@ namespace Cagri.Scripts._Core
             case GameState.Prepare:
                if (!_startPrepare)
                {
+                  
                   return;
                }
-               CurrentGameState = GameState.MainGame;
-
                break;
             case GameState.MainGame:
+               if (watchMod)
+               {
+                  return;
+               }
                player.IsGrounded();
                CamFollow();
                KillPlayer();
