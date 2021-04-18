@@ -96,7 +96,7 @@ namespace Cagri.Scripts.Player
             if (Input.GetMouseButtonDown(0))
             {
                 playerAnimatorController.SetTrigger("HitEnemy");
-                AudioController.instance.PlayAudio(AudioType.SFX3);
+                AudioController.instance.PlayAudio(AudioType.SFX3, false, 0f, 0.6f);
             }
         }
 

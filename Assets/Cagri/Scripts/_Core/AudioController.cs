@@ -93,6 +93,7 @@ public class AudioController : MonoBehaviour
         private void Configure()
         {
             instance = this;
+            //DontDestroyOnLoad(this.gameObject);
             m_AudioTable = new Hashtable();
             m_JobTable = new Hashtable();
             GenerateAudioTable();
