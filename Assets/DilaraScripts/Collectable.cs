@@ -62,10 +62,10 @@ public class Collectable : MonoBehaviour
                     player.collectableTextActive.text = "My wife's favorite book.. I wonder, where is she now..";
                     break;
                 case CollectableType.Duck:
-                    player.collectableTextActive.text = "My daughter's duck, I missed her..";
+                    player.collectableTextActive.text = "My daughter's toy, I missed her..";
                     break;
                 case CollectableType.Guitar:  
-                    player.collectableTextActive.text = "My old friend..";
+                    player.collectableTextActive.text = "          My old friend..        ";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();
