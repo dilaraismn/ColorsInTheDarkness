@@ -24,7 +24,7 @@ public class Bullet : MonoBehaviour
         }
     }
 
-    private void OnCollisionEnter(Collision other)
+    private void OnTriggerEnter(Collider other)
     {
         Instantiate(particle, transform.position, Quaternion.identity);
         PlayerController player = other.gameObject.GetComponent<PlayerController>();
