@@ -29,7 +29,7 @@ Transform:
   m_GameObject: {fileID: 6049310664447741083}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 15.8, y: 3.96, z: -0.56}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: 0.52586, y: 0.52586, z: 0.52586}
   m_Children:
   - {fileID: 5233616950815382771}
   m_Father: {fileID: 0}
@@ -62,7 +62,7 @@ MeshRenderer:
   m_RenderingLayerMask: 1
   m_RendererPriority: 0
   m_Materials:
-  - {fileID: 2100000, guid: 31321ba15b8f8eb4c954353edc038b1d, type: 2}
+  - {fileID: 2100000, guid: 7b7372c8e2231b94c89ada24a57116b4, type: 2}
   m_StaticBatchInfo:
     firstSubMesh: 0
     subMeshCount: 0
@@ -110,7 +110,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   MoveSpeed: 3
-  MinDistance: 1
+  MinDistance: 5
   bullet: {fileID: 7930861064303665703, guid: af4473153ca8a674886a4253bc21769a, type: 3}
   fireRate: 2
 --- !u!1001 &5704710107589065496
@@ -176,10 +176,42 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: -7511558181221131132, guid: 60d085c507c1ec6468d892e90c1ed3e2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b7372c8e2231b94c89ada24a57116b4, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 60d085c507c1ec6468d892e90c1ed3e2, type: 3}
+      propertyPath: m_Materials.Array.data[1]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b7372c8e2231b94c89ada24a57116b4, type: 2}
+    - target: {fileID: -7511558181221131132, guid: 60d085c507c1ec6468d892e90c1ed3e2, type: 3}
+      propertyPath: m_Materials.Array.data[2]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b7372c8e2231b94c89ada24a57116b4, type: 2}
+    - target: {fileID: -3745714030867183508, guid: 60d085c507c1ec6468d892e90c1ed3e2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b7372c8e2231b94c89ada24a57116b4, type: 2}
     - target: {fileID: 919132149155446097, guid: 60d085c507c1ec6468d892e90c1ed3e2, type: 3}
       propertyPath: m_Name
       value: Pocket_Clock
       objectReference: {fileID: 0}
+    - target: {fileID: 1238293947887423639, guid: 60d085c507c1ec6468d892e90c1ed3e2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b7372c8e2231b94c89ada24a57116b4, type: 2}
+    - target: {fileID: 1733882949048124472, guid: 60d085c507c1ec6468d892e90c1ed3e2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b7372c8e2231b94c89ada24a57116b4, type: 2}
+    - target: {fileID: 3244001729738631999, guid: 60d085c507c1ec6468d892e90c1ed3e2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b7372c8e2231b94c89ada24a57116b4, type: 2}
+    - target: {fileID: 6271578028886077095, guid: 60d085c507c1ec6468d892e90c1ed3e2, type: 3}
+      propertyPath: m_Materials.Array.data[0]
+      value: 
+      objectReference: {fileID: 2100000, guid: 7b7372c8e2231b94c89ada24a57116b4, type: 2}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 60d085c507c1ec6468d892e90c1ed3e2, type: 3}
 --- !u!4 &5233616950815382771 stripped

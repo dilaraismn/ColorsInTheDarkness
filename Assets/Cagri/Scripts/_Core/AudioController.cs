@@ -59,7 +59,6 @@ public class AudioController : MonoBehaviour
             if (!instance)
             {
                 instance = this;
-                DontDestroyOnLoad(this.gameObject);
                 Configure();
             }
         }

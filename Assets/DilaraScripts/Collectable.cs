@@ -59,13 +59,13 @@ public class Collectable : MonoBehaviour
             switch (currentCollectableType)
             {
                 case CollectableType.Book:
-                    player.collectableTextActive.text = "Collectable  Scriptinde Kitap Icin  Degistir";
+                    player.collectableTextActive.text = "My wife's favorite book.. I wonder, where is she now..";
                     break;
                 case CollectableType.Duck:
-                    player.collectableTextActive.text = "Collectable Scriptinde Ordek Icin Degistir";
+                    player.collectableTextActive.text = "My daughter's duck, I missed her..";
                     break;
                 case CollectableType.Guitar:  
-                    player.collectableTextActive.text = "Collectable Scriptinde Gitar Icin Degistir";
+                    player.collectableTextActive.text = "My old friend..";
                     break;
                 default:
                     throw new ArgumentOutOfRangeException();

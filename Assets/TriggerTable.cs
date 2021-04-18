@@ -24,7 +24,7 @@ public class TriggerTable : MonoBehaviour
             player.ayinTextActive.gameObject.SetActive(true);
             if (GameManager.manager.finishDoorOpen)
             {
-                player.ayinTextActive.text = "TriggerTable icinden degistir , Ayini tamamlamak icin e bas";
+                player.ayinTextActive.text = "Complete your journey to the awareness..";
                 if (Input.GetKeyDown(KeyCode.E))
                 {
                     GameManager.manager.watchMod = true;
@@ -36,7 +36,7 @@ public class TriggerTable : MonoBehaviour
             else
             {
                 player.ayinTextActive.text =
-                    "TriggerTable Icinden Degistir , Ayini Tamamlamak icin sunlari sunlari getir";
+                    "You need more awareness to continue..";
             }
         }
     }
