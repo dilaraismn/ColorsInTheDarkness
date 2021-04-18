@@ -72,6 +72,7 @@ namespace Cagri.Scripts._Core
         IEnumerator StartUIDisable()
         {
             startGameUi.SetActive(false);
+            AudioController.instance.StopAudio(AudioType.Oyun1, true, 3f, 0f);
             yield return new WaitForSeconds(2f);
             GameManager.manager.CurrentGameState = GameManager.GameState.MainGame;
         }

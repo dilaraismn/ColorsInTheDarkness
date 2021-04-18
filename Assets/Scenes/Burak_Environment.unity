@@ -218,6 +218,9 @@ MonoBehaviour:
   speed: 200
   jumpHeight: 25
   playerAnimatorController: {fileID: 2057457243}
+  playerModel: {fileID: 0}
+  collectableTextActive: {fileID: 0}
+  ayinTextActive: {fileID: 0}
   _health: 100
 --- !u!4 &75584467
 Transform:
@@ -1252,8 +1255,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   camPlayerPos: {fileID: 2035292445}
   camRoot: {fileID: 1732054109}
+  collectableList: []
   player: {fileID: 75584466}
   winGame: 0
+  watchMod: 0
   finishDoorOpen: 0
 --- !u!4 &650871254
 Transform:

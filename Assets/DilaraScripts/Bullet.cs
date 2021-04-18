@@ -31,6 +31,7 @@ public class Bullet : MonoBehaviour
         if (player)
         {
             player._health -= 5;
+            AudioController.instance.PlayAudio(AudioType.SFX2);
         }
         Destroy(gameObject);
     }

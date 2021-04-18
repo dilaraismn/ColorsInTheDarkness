@@ -39,12 +39,16 @@ namespace Cagri.Scripts._Core
                   _startPrepare = true;
                   UIManager.manager.startGameUi.SetActive(true);
                   UIManager.manager.menuUi.SetActive(true);
+                  AudioController.instance.PlayAudio(AudioType.Oyun1);
                   break;
                case GameState.MainGame:
                   UIManager.manager.inGameUi.SetActive(true);
+                  AudioController.instance.PlayAudio(AudioType.Oyun2);
                   break;
                case GameState.FinishGame:
                   UIManager.manager.inGameUi.SetActive(false);
+                  AudioController.instance.StopAudio(AudioType.Oyun2, true, 1f, 0f);
+                  //AudioController.instance.PlayAudio(AudioType.Oyun3);
                   UIManager.manager.finishGameUi.SetActive(true);
                   if (winGame)
                   {
@@ -113,6 +117,7 @@ namespace Cagri.Scripts._Core
          if (player._health <= 0)
          {
             player.playerAnimatorController.SetTrigger("PlayerDeath");
+            AudioController.instance.PlayAudio(AudioType.SFX5);
             winGame = false;
             CurrentGameState = GameState.FinishGame;
          }
