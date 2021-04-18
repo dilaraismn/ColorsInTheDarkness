@@ -363,7 +363,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   rayHeight: 1.1
   speed: 200
-  jumpHeight: 25
+  jumpHeight: 20
   playerAnimatorController: {fileID: 5866666020722014925}
   playerModel: {fileID: 1719852754}
   collectableTextActive: {fileID: 595550648}
@@ -3961,6 +3961,10 @@ PrefabInstance:
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
       objectReference: {fileID: 1199657990}
+    - target: {fileID: 2133309351059705543, guid: f47925433f3cfae4cafac627b46e9191, type: 3}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     - target: {fileID: 3629863305943123218, guid: f47925433f3cfae4cafac627b46e9191, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
