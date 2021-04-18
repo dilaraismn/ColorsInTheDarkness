@@ -32,7 +32,7 @@ namespace Cagri.Scripts.Player
         
         private Rigidbody _rb;
         private bool _isGrounded;
-        [HideInInspector] public int _health = 100;
+        public int _health = 200;
 
         private void Awake()
         {

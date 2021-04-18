@@ -48,7 +48,7 @@ namespace Cagri.Scripts._Core
                   break;
                case GameState.FinishGame:
                   UIManager.manager.inGameUi.SetActive(false);
-                  AudioController.instance.StopAudio(AudioType.Oyun2, true, 1f, 0f);
+                  AudioController.instance.StopAudio(AudioType.Oyun2, false, 0f, 0f);
                   UIManager.manager.finishGameUi.SetActive(true);
                   if (winGame)
                   {
@@ -72,8 +72,9 @@ namespace Cagri.Scripts._Core
       IEnumerator LoseGameDelay()
       {
          yield return new WaitForSeconds(3f);
+         AudioController.instance.PlayAudio(AudioType.Oyun1, true, 0.1f, 0f);
          UIManager.manager.loseGameUI.SetActive(true);
-         AudioController.instance.PlayAudio(AudioType.Oyun1);
+         
       }
 
       [HideInInspector] public bool watchMod;
